@@ -1,0 +1,28 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+
+model chamados {
+  id Int @id @default(autoincrement())
+  nomeAnimal String
+  idadeAnimal String
+  tipoAnimal String
+  descricao String
+  imagemChamado String?
+  latitudeChamado Float
+  longitudeChamado Float
+  enderecoChamado String
+  tipoChamado String
+  status String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
